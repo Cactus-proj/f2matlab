@@ -1,127 +1,141 @@
 # f2matlab
 
-README file for f2matlab.m
+README file for `f2matlab.m`
 
 CONTENTS:
+
 -1. SUPPORT f2matlab AND CONSULTING
- 0. DISCLAIMER
- 1. OBJECTIVE
- 2. MOTIVATION
- 3. BUG REPORTS and WISH LIST
- 4. F2MATLAB CAPABILITIES
- 5. F2MATLAB LIMITATIONS
- 6. HOW TO USE F2MATLAB
- 7. EXAMPLES
- 8. REVISION HISTORY
-
--1.SUPPORT f2matlab. 
-   I now also do conversion/translation/validation/optimization consulting.
-   Please refer to my webpage:
-   https://sites.dartmouth.edu/barrowes/consulting/
-   
-   Even though f2matlab is free (under GPL) for the using, I would like
-   to ask that those who find it useful, wish to support the project,
-   and are able to make a contribution to please do so commesurate with
-   use (especially corporations). *** Important - Please donate using
-   your PayPal account and not a credit card so as to avoid fees at
-   PayPal. Thank you! PayPal email ID: barrowes@alum.mit.edu
+0. DISCLAIMER
+1. OBJECTIVE
+2. MOTIVATION
+3. BUG REPORTS and WISH LIST
+4. F2MATLAB CAPABILITIES
+5. F2MATLAB LIMITATIONS
+6. HOW TO USE F2MATLAB
+7. EXAMPLES
+8. REVISION HISTORY
 
 
-0. DISCLAIMER: Matlab is a trademark of the Mathworks company and is
-   owned by them. The author makes no guarantee express or implied of
-   any kind as to the applicability, usefulness, efficacy,
-   bug-freeness, or the accuracy of the ensuing results from using
-   f2matlab.
+## -1. SUPPORT f2matlab
 
-   The author bears no responsibility for any unwanted effect
-   resulting from the use of this program. The author is not
-   affiliated with the Mathworks.  The source code is given in full in
-   the hopes that it will prove useful. 
+I now also do conversion/translation/validation/optimization consulting.
+Please refer to my webpage:
+https://sites.dartmouth.edu/barrowes/consulting/
 
-1. OBJECTIVE: f2matlab.m is a small translator which aims to
-   convert Fortran90 files to Matlab m-files.
-
-2. MOTIVATION: 
-
-   1) Matlab is becoming ubiquitous in the engineering and scientific
-   communities for its ease of use coupled with its powerful
-   libraries. Yet the fact remains that a large number of stable and
-   dependable programs exist in the fortran77/90 corpus. 
-
-   2) Many times, often amidst the porting of fortran programs to
-   Matlab, an automated converter of fortran90 code to Matlab code would
-   be useful. 
-
-   3) Having written matlab2fmex.m, a matlab to fortran90 mex file
-   converter, the writing of f2matlab, which performs the reverse
-   conversion, was substantially simplified.
-
-3. BUG REPORTS and WISH LIST:
-   For all bug reports, email barrowes@alum.mit.edu
-
-4. F2MATLAB CAPABILITIES: f2matlab is aimed at converting 
-   Fortran90 code to Matlab m-files. Accordingly, only basic data types
-   and constructions are recommended. f2matlab can handle:
-
-   all numeric types (handled by Matlab interpreter)
-   most string functions
-   comparisons, branches, loops, etc.
-   basic read/write/print statements (if it's not too fancy...)
-   modules
-
-5. F2MATLAB LIMITATIONS: f2matlab can not handle some features of
-   fortran90 yet. These include:
-
-   can't handle complex read and write statements
-   derived-typed variables
-   equivalence
-   ...
-
-6. HOW TO USE F2MATLAB: f2matlab expects a single fortran90 fortran file to
-   convert. If you have fortran77 code, use some free converter
-   (e.g. to_f90 by Alan Miller) before running f2matlab. Then simply
-   call f2matlab by using the full filename:
-   f2matlab('filename.f90');
-   The output will be filename.m in the same directory.
-   
-   A few flags are available that effect conversion:
-   %  want_kb=0; 1 ==> if keyboard mode is desired after some conversion steps
-   %  want_ze=0; 1 ==> direct f2matlab to zero all array variables.
-   %  want_fi=0; 1 ==> direct f2matlab to try to put fix()'s around declared integers.
-
-   Multiple subroutines and functions can and should be in the same fortran90 file.
-
-7. EXAMPLES:
-   Below are some specific examples. Other tests and examples include:
-   
-   Running the script TESTING_cfs in the comp_spec_func directory converts all of the f90
-   code from Shanjie Zhang and Jianming Jin's book. 
-
-   For some larger examples (>=10000 lines), see the examples directory. The following
-   fortran packages were downloaded (most from John Burkardt at FSU) and converted:
-
-   - fempack routines for finite element analysis:
-     f2matlab('femprb.f90');
-
-   - quadrule
-     f2matlab('quadrule_prb.f90');
-
-   - quadrature integration routines by Arthur Stroud:
-     f2matlab('stroud_prb.f90');
+Even though f2matlab is free (under GPL) for the using, I would like
+to ask that those who find it useful, wish to support the project,
+and are able to make a contribution to please do so commesurate with
+use (especially corporations). *** Important - Please donate using
+your PayPal account and not a credit card so as to avoid fees at
+PayPal. Thank you! PayPal email ID: barrowes@alum.mit.edu
 
 
-     Run the script TESTING_ex in the examples directory to convert and test all the examples
-     there.
+## 0. DISCLAIMER
+
+Matlab is a trademark of the Mathworks company and is
+owned by them. The author makes no guarantee express or implied of
+any kind as to the applicability, usefulness, efficacy,
+bug-freeness, or the accuracy of the ensuing results from using
+f2matlab.
+
+The author bears no responsibility for any unwanted effect
+resulting from the use of this program. The author is not
+affiliated with the Mathworks.  The source code is given in full in
+the hopes that it will prove useful. 
+
+## 1. OBJECTIVE
+
+f2matlab.m is a small translator which aims to
+convert Fortran90 files to Matlab m-files.
+
+## 2. MOTIVATION
+
+1) Matlab is becoming ubiquitous in the engineering and scientific
+communities for its ease of use coupled with its powerful
+libraries. Yet the fact remains that a large number of stable and
+dependable programs exist in the fortran77/90 corpus. 
+
+2) Many times, often amidst the porting of fortran programs to
+Matlab, an automated converter of fortran90 code to Matlab code would
+be useful. 
+
+3) Having written matlab2fmex.m, a matlab to fortran90 mex file
+converter, the writing of f2matlab, which performs the reverse
+conversion, was substantially simplified.
+
+## 3. BUG REPORTS and WISH LIST
+
+For all bug reports, email barrowes@alum.mit.edu
+
+## 4. F2MATLAB CAPABILITIES
+
+f2matlab is aimed at converting 
+Fortran90 code to Matlab m-files. Accordingly, only basic data types
+and constructions are recommended. f2matlab can handle:
+
+all numeric types (handled by Matlab interpreter)
+most string functions
+comparisons, branches, loops, etc.
+basic read/write/print statements (if it's not too fancy...)
+modules
+
+## 5. F2MATLAB LIMITATIONS
+
+f2matlab can not handle some features of
+fortran90 yet. These include:
+
+can't handle complex read and write statements
+derived-typed variables
+equivalence
+...
+
+## 6. HOW TO USE F2MATLAB
+
+f2matlab expects a single fortran90 fortran file to
+convert. If you have fortran77 code, use some free converter
+(e.g. to_f90 by Alan Miller) before running f2matlab. Then simply
+call f2matlab by using the full filename:
+f2matlab('filename.f90');
+The output will be filename.m in the same directory.
+
+A few flags are available that effect conversion:
+%  want_kb=0; 1 ==> if keyboard mode is desired after some conversion steps
+%  want_ze=0; 1 ==> direct f2matlab to zero all array variables.
+%  want_fi=0; 1 ==> direct f2matlab to try to put fix()'s around declared integers.
+
+Multiple subroutines and functions can and should be in the same fortran90 file.
+
+## 7. EXAMPLES
+
+Below are some specific examples. Other tests and examples include:
+
+Running the script TESTING_cfs in the comp_spec_func directory converts all of the f90
+code from Shanjie Zhang and Jianming Jin's book. 
+
+For some larger examples (>=10000 lines), see the examples directory. The following
+fortran packages were downloaded (most from John Burkardt at FSU) and converted:
+
+- fempack routines for finite element analysis:
+  f2matlab('femprb.f90');
+
+- quadrule
+  f2matlab('quadrule_prb.f90');
+
+- quadrature integration routines by Arthur Stroud:
+  f2matlab('stroud_prb.f90');
 
 
+  Run the script TESTING_ex in the examples directory to convert and test all the examples
+  there.
 
-   The following f77 program, lpmns.f, calculates the associated legendre
-   function for degree m, order n, and parameter x. The output is the function value pm
-   and the value of the derivative pd. This function is from the book "Computation of
-   Special Functions." by Shanjie Zhang, and Jianming Jin, New York : Wiley, c1996.
+The following f77 program, lpmns.f, calculates the associated legendre
+function for degree m, order n, and parameter x. The output is the function value pm
+and the value of the derivative pd. This function is from the book "Computation of
+Special Functions." by Shanjie Zhang, and Jianming Jin, New York : Wiley, c1996.
 
-   These examples are in the examples directory.
+These examples are in the examples directory.
 
+```fortran
        SUBROUTINE LPMNS(M,N,X,PM,PD)
 c**************************************************************
 C
@@ -177,9 +191,11 @@ C
 30          PD(K)=(K*X*PM(K)-(K+M)*PM(K-1))/(X*X-1.0D0)
         RETURN
         END
+```
 
-As this is fortran77, we use to_f90 to get lpmns.f90:
+As this is fortran77, we use to_f90 to get `lpmns.f90`:
 
+```fortran
 SUBROUTINE lpmns(m,n,x,pm,pd)
  
 ! Code converted using TO_F90 by Alan Miller
@@ -250,18 +266,22 @@ DO  k=1,n
 END DO
 RETURN
 END SUBROUTINE lpmns
+```
 
-Now we convert this to a Matlab function lpmns.m:
+Now we convert this to a Matlab function `lpmns.m`:
 
+```
 >> f2matlab('lpmns.f90');
   subroutine lpmns(m,n,x,pm,pd)
     Number of lines:   70
       Writing file:  lpmns.m ... completed 
   Total time: 0.58333
 >> 
+```
 
-Resulting in lpmns.m:
-
+Resulting in `lpmns.m:
+`
+```matlab
 function [m,n,x,pm,pd]=lpmns(m,n,x,pm,pd);
 
 %**************************************************************
@@ -319,12 +339,12 @@ pd(0+1)=((1.0d0-m).*pm(1+1)-x.*pm(0+1))./(x.*x-1.0);
 for  k=1:n;
 pd(k+1)=(k.*x.*pm(k+1)-(k+m).*pm(k-1+1))./(x.*x-1.0d0);
 end;
+```
 
 
+Now we can run `lpmns.m`:
 
-
-Now we can run lpmns.m:
-
+```
 >> [a1,a2,a3,pm,pd]=lpmns(0,10,.5)
 a1 =
      0
@@ -347,11 +367,12 @@ pd =
   Columns 9 through 11 
              2.77294921875         0.723724365234375         -2.31712341308594
 >> 
+```
 
-
-As another example, let's follow the same procedure with dgauleg.f, a
+As another example, let's follow the same procedure with `dgauleg.f`, a
 subroutine which calculates gaussian quadrature coefficients.
 
+```fortran
       SUBROUTINE dgauleg(x1,x2,x,w,n)
 c----------------------------------------------------------------
       INTEGER n
@@ -386,9 +407,11 @@ c----------------------------------------------------------------
 12    continue
       return
       end
+```
 
 Now convert to fortran90
 
+```fortran
 SUBROUTINE dgauleg(x1,x2,x,w,n)
  
 ! Code converted using TO_F90 by Alan Miller
@@ -433,9 +456,11 @@ DO  i=1,m
 END DO
 RETURN
 END SUBROUTINE dgauleg
+```
 
-And now to dgauleg.m
+And now to `dgauleg.m`
 
+```
 >> f2matlab('dgauleg.f90');
   subroutine dgauleg(x1,x2,x,w,n)
     Number of lines:   44
@@ -443,9 +468,11 @@ And now to dgauleg.m
     Writing file:  dgauleg.m ... completed 
   Total time: 0.35
 >> 
+```
 
-Resulting dgauleg.m:
+Resulting `dgauleg.m`:
 
+```matlab
 function [x1,x2,x,w,n]=dgauleg(x1,x2,x,w,n);
 
 %----------------------------------------------------------------
@@ -475,9 +502,11 @@ x(n+1-i)=xm+xl.*z;
 w(i)=2.d0.*xl./((1.d0-z.*z).*pp.*pp);
 w(n+1-i)=w(i);
 end;
-
+```
 
 And now we can call it from Matlab:
+
+```
 >>  [x,w]=dgauleg(0,1,0,1,10)  
 x =
      0
@@ -505,15 +534,17 @@ w =
 n =
     10
 >> 
-
+```
 
 Finally, here is an example which converts a fortran90 program with subroutines into
 Matlab. The program is MCPBDN.for from the book "Computation of Special Functions." by
 Shanjie Zhang, and Jianming Jin, New York : Wiley, c1996. After using to_f90 on this file,
 the only alteration was to specify the inputs x and y in the code instead of using a read
-statement. See the /examples directory.
+statement. See the `/examples` directory.
 
 Converting:
+
+```
 >> f2matlab('mcpbdn.f90');
   program mcpbdn
     Number of lines:   61
@@ -528,9 +559,10 @@ Converting:
     Writing file:  mcpbdn.m ... completed 
   Total time: 2.75
 >> 
+```
 
 We can now try it out:
-
+```
 >> mcpbdn
 ans =
 please enter n, x and y 
@@ -579,10 +611,12 @@ ans =
 ans =
           -28950.7550321934 +      58834.4680698817i
 >> 
+```
 
 Which agrees with the values produced by the original code.
 
 
 
-8. REVISION HISTORY:
-   See changelog
+## 8. REVISION HISTORY
+
+See [changelog](changelog)
